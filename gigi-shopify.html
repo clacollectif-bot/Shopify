@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gigi — L'Afrique Customer Care</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Jost',sans-serif;background:#F5F0EB;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.inner{width:100%;max-width:420px}
+.widget{background:#FAF7F4;border-radius:24px;border:1px solid #E2D8D0;box-shadow:0 12px 48px rgba(44,36,32,.09),0 2px 8px rgba(44,36,32,.05);overflow:hidden;display:flex;flex-direction:column;height:640px}
+.header{background:#4A4540;padding:18px 22px;display:flex;align-items:center;gap:13px;flex-shrink:0}
+.av-wrap{position:relative;flex-shrink:0}
+.av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#E8D5C8,#C49A84);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;color:#2C2420}
+.sdot{position:absolute;bottom:2px;right:2px;width:9px;height:9px;border-radius:50%;background:#7DC97D;border:2px solid #4A4540;animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hinfo{flex:1}
+.hname{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:#fff;letter-spacing:.03em}
+.hsub{font-size:10px;font-weight:300;color:#E8D5C8;letter-spacing:.1em;text-transform:uppercase;margin-top:1px}
+.msgs{flex:1;overflow-y:auto;padding:22px 18px 14px;display:flex;flex-direction:column;gap:13px;scroll-behavior:smooth}
+.msgs::-webkit-scrollbar{width:3px}
+.msgs::-webkit-scrollbar-thumb{background:#E2D8D0;border-radius:10px}
+.row{display:flex;gap:9px;animation:up .3s ease forwards;opacity:0}
+.row.u{flex-direction:row-reverse}
+@keyframes up{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.mav{width:27px;height:27px;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:10px;font-family:'Cormorant Garamond',serif}
+.mav.a{background:linear-gradient(135deg,#E8D5C8,#C49A84);color:#2C2420}
+.mav.u{background:#2C2420;color:#FAF7F4;font-size:9px}
+.bub{max-width:82%;padding:11px 15px;border-radius:18px;font-size:13.5px;line-height:1.7;font-weight:300;white-space:pre-wrap;word-break:break-word}
+.bub.a{background:#fff;color:#2C2420;border:1px solid #E2D8D0;border-bottom-left-radius:5px;box-shadow:0 2px 8px rgba(44,36,32,.06)}
+.bub.u{background:#2C2420;color:#FAF7F4;border-bottom-right-radius:5px}
+.btime{display:block;font-size:10px;margin-top:5px;font-weight:400;opacity:.5}
+.typing-row{display:flex;gap:9px;animation:up .3s ease forwards;opacity:0}
+.tbub{background:#fff;border:1px solid #E2D8D0;border-radius:18px;border-bottom-left-radius:5px;padding:13px 16px;display:flex;gap:5px;align-items:center}
+.tdot{width:6px;height:6px;border-radius:50%;background:#C49A84;animation:b 1.2s ease-in-out infinite}
+.tdot:nth-child(2){animation-delay:.15s}.tdot:nth-child(3){animation-delay:.3s}
+@keyframes b{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.sf-wrap{max-width:82%;margin-left:36px;margin-top:4px;animation:up .3s ease forwards;opacity:0}
+.qr-section{flex-shrink:0;border-top:1px solid #E2D8D0;padding:10px 18px 12px;background:#FAF7F4}
+.qr-label{font-size:9.5px;font-weight:500;color:#7A6B64;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.qr{display:flex;flex-wrap:wrap;gap:7px}
+.qbtn{background:transparent;border:1px solid #E2D8D0;border-radius:20px;padding:5px 13px;font-family:'Jost',sans-serif;font-size:11px;font-weight:400;color:#7A6B64;letter-spacing:.06em;cursor:pointer;transition:all .2s;white-space:nowrap}
+.qbtn:hover{background:#2C2420;color:#FAF7F4;border-color:#2C2420}
+.iarea{padding:10px 15px 14px;border-top:1px solid #E2D8D0;background:#FAF7F4;display:flex;gap:9px;align-items:flex-end;flex-shrink:0}
+.ifield{flex:1;background:#F5F0EB;border:1px solid #E2D8D0;border-radius:22px;padding:10px 16px;font-family:'Jost',sans-serif;font-size:13.5px;font-weight:300;color:#2C2420;resize:none;outline:none;max-height:100px;line-height:1.5}
+.ifield::placeholder{color:#7A6B64;opacity:.7}
+.ifield:focus{border-color:#C49A84}
+.sbtn{width:40px;height:40px;border-radius:50%;background:#2C2420;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.sbtn:hover{background:#8B5E52}
+.sbtn:disabled{opacity:.35;cursor:not-allowed}
+.footer{text-align:center;padding:9px;font-size:10px;color:#7A6B64;letter-spacing:.1em;opacity:.5}
+.wa-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:10px 0 0;padding:12px 20px;background:#4A4540;border-radius:12px;text-decoration:none;color:#FAF7F4;font-size:11px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase;width:100%;box-sizing:border-box}
+.wa-inline{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;padding:13px 20px;background:linear-gradient(135deg,#2C2420,#4a3830);border-radius:12px;text-decoration:none;color:#FAF7F4;font-size:11px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.sf-card{background:#fff;border:1px solid #E2D8D0;border-radius:14px;padding:16px;margin-top:8px}
+.sf-toggle{display:flex;border:1px solid #E2D8D0;border-radius:3px;overflow:hidden;width:fit-content;margin-bottom:14px}
+.sf-toggle button{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 18px;border:none;cursor:pointer}
+.sf-field{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid #E2D8D0;margin-bottom:8px;background:#FAF7F4}
+.sf-field input{width:64px;text-align:center;border:1px solid #E2D8D0;background:#F5F0EB;padding:8px 6px;font-family:'Jost',sans-serif;font-size:14px;color:#2C2420;outline:none}
+.sf-result{text-align:center;padding:16px 10px 12px;background:#F5F0EB;margin-bottom:12px}
+.sf-size{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;letter-spacing:.1em;color:#2C2420;line-height:1}
+.sf-pills{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:12px}
+.sf-pill{padding:5px 14px;border:1px solid #E2D8D0;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+.between-note{border-left:2px solid #C49A84;padding:10px 14px;background:#fff;font-size:12px;color:#7A6B64;line-height:1.7;margin-bottom:12px}
+.ship-card{background:#fff;border:1px solid #E2D8D0;border-radius:14px;padding:16px;margin-top:8px}
+.ship-toggle{display:flex;border:1px solid #E2D8D0;border-radius:3px;overflow:hidden;width:fit-content;margin:0 auto 10px}
+.ship-toggle button{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 20px;border:none;cursor:pointer}
+.ship-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:17px;letter-spacing:.15em;text-transform:uppercase;text-align:center;margin-bottom:14px;color:#2C2420}
+.customs-note{border-left:2px solid #C49A84;padding:10px 14px;background:#FAF7F4;font-size:12px;color:#7A6B64;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="inner">
+  <div class="widget">
+    <div class="header">
+      <div class="av-wrap">
+        <div class="av">G</div>
+        <div class="sdot"></div>
+      </div>
+      <div class="hinfo">
+        <div class="hname">Gigi 🤍</div>
+        <div class="hsub">Style Assistant · Online now</div>
+      </div>
+    </div>
+    <div class="msgs" id="msgs"><div class="row" style="animation:up .3s ease forwards;opacity:0"><div class="mav a">G</div><div class="bub a"><span style="white-space:pre-wrap">Hey, it's Gigi 🤍 Welcome to L'Afrique. How can I help you today?</span><span class="btime"></span></div></div></div>
+    <div class="qr-section">
+      <div class="qr-label">Quick questions</div>
+      <div class="qr">
+        <button class="qbtn" onclick="sendMsg('sizing')">Sizing</button>
+        <button class="qbtn" onclick="sendMsg('What are your shipping options?')">Shipping</button>
+        <button class="qbtn" onclick="sendMsg('How do returns work?')">Returns</button>
+        <button class="qbtn" onclick="sendMsg('How do exchanges work?')">Exchanges</button>
+        <button class="qbtn" onclick="sendMsg('Where can I find you?')">Store / Location</button>
+        <button class="qbtn" onclick="sendMsg('Do you do custom dresses?')">Custom dresses</button>
+      </div>
+    </div>
+    <div class="iarea">
+      <textarea class="ifield" id="inputField" placeholder="Or type your question…" rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+      <button class="sbtn" id="sendBtn" onclick="sendFromInput()" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="footer">lfrique.com · Powered by Gigi AI</div>
+  <a href="https://wa.me/27615347756?text=Hi%2C+I%27d+like+some+help+with+my+L%27Afrique+order+or+enquiry" target="_blank" rel="noopener noreferrer" class="wa-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#E8D5C8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Contact us on WhatsApp
+  </a>
+</div>
+<script>
+const SIZES=[
+  {label:"XS",uk:"UK 6",bust:[80,83],waist:[62,64],hips:[89,92]},
+  {label:"S",uk:"UK 8",bust:[83,87],waist:[65,68],hips:[92,96]},
+  {label:"M",uk:"UK 10",bust:[88,92],waist:[69,73],hips:[97,102]},
+  {label:"L",uk:"UK 12",bust:[93,97],waist:[74,78],hips:[102,108]},
+  {label:"XL",uk:"UK 14",bust:[98,102],waist:[79,83],hips:[108,114]}
+];
+function scoreSize(s,b,w,h){let sc=0;[[b,s.bust],[w,s.waist],[h,s.hips]].forEach(([v,r])=>{if(v==null)return;if(v<r[0])sc+=r[0]-v;else if(v>r[1])sc+=v-r[1]});return sc}
+function calcSize(b,w,h){const sc=SIZES.map(s=>({...s,score:scoreSize(s,b,w,h)}));sc.sort((a,b)=>a.score-b.score);return{best:sc[0],second:sc[1],isBetween:sc[0].score>0&&sc[1].score<=3}}
+function detectIntent(text){
+  const t=text.toLowerCase();
+  if(t.includes("return address")||t.includes("where do i return")||t.includes("where to return")||t.includes("return it to")||t.includes("send it back")||t.includes("post it back"))return"return_address";
+  if(t.includes("where is my order")||t.includes("track")||t.includes("order update")||t.includes("my parcel")||t.includes("my order"))return"order_update";
+  if(t.includes("size")||t.includes("sizing")||t.includes("measurements")||t.includes("fit")||t.includes("what size")||t.includes("which size"))return"sizing";
+  if(t.includes("return")||t.includes("refund"))return"returns";
+  if(t.includes("exchange")||t.includes("swap"))return"exchange";
+  if(t.includes("ship")||t.includes("delivery")||t.includes("deliver")||t.includes("international")||t.includes("how long")||t.includes("arrive"))return"shipping";
+  if(t.includes("custom")||t.includes("bespoke")||t.includes("custom dress"))return"custom";
+  if((t.includes("where")&&(t.includes("find")||t.includes("store")||t.includes("location")))||t.includes("workshop modesty")||t.includes("cape town")||t.includes("rosebank"))return"store";
+  if(t.includes("wholesale")||t.includes("collab")||t.includes("influencer")||t.includes("press"))return"escalate";
+  if(t.includes("hi")||t.includes("hello")||t.includes("hey")||t.includes("good morning")||t.includes("good afternoon"))return"greeting";
+  if(t.includes("thank")||t.includes("thanks")||t.includes("perfect")||t.includes("great")||t.includes("awesome"))return"thanks";
+  return"general";
+}
+function detectUrgency(t){const s=t.toLowerCase();return s.includes("urgent")||s.includes("wedding")||s.includes("graduation")||s.includes("eid")||s.includes("event")||s.includes("matric")||s.includes("birthday")||s.includes("need it by")||s.includes("need it for")}
+function getReply(text){
+  const i=detectIntent(text),u=detectUrgency(text);
+  if(u&&(i==="shipping"||i==="general"))return"If you need it for a specific date, I’d recommend placing the order as soon as possible 🤍 Delivery within South Africa is usually 2–5 business days, and international delivery is 10–15 business days.
+
+You can place your order at www.lfrique.com ✨";
+  switch(i){
+    case"greeting":return"Hey! So lovely to have you here 🤍 What can I help you with today?";
+    case"thanks":return"Of course! Always happy to help 🤍 Is there anything else I can do for you?";
+    case"order_update":return"Please send me your order number and I’ll check this with the team for you right away 🤍";
+    case"returns":return"You’re welcome to return an item within 7 days of receiving it, as long as it’s unworn, unwashed, and still has the tags attached 🤍
+
+Return shipping is at your own cost, and your refund will be processed once we’ve received and checked the item.";
+    case"exchange":return"We can definitely assist with an exchange within 7 days of receiving your order, as long as the item is still in its original condition with tags attached 🤍
+
+For the quickest option, we recommend placing a new order at www.lfrique.com and sending the original item back to us.
+
+Returns are sent at your own cost.";
+    case"custom":return"At the moment we’re not offering custom dresses, as we’re focusing on our ready-to-wear collections 🤍";
+    case"store":return"We’re mainly an online store at www.lfrique.com 🤍
+
+You can also find selected L’Afrique pieces at Workshop Modesty in Cape Town and Rosebank, Johannesburg.";
+    case"escalate":return"I’ll flag this to the team personally 🤍 Could you please send your email address and order number (if you have it) so we can follow up with you directly?";
+    default:return"Thanks for reaching out 🤍 I want to make sure I help you properly — could you tell me a little more about what you’re looking for?
+
+You’re also welcome to browse our collection at www.lfrique.com ✨";
+  }
+}
+let isTyping=false,awaitingOrderNumber=false,showSizeFinder=false,showShipping=false;
+let sfUnit="cm",sfBust="",sfWaist="",sfHips="",sfResult=null,shippingTab="sa";
+function getTime(){return new Date().toLocaleTimeString("en-ZA",{hour:"2-digit",minute:"2-digit",hour12:true})}
+function scrollBottom(){const m=document.getElementById("msgs");m.scrollTop=m.scrollHeight}
+function waIcon(){return'<svg width="15" height="15" viewBox="0 0 24 24" fill="#E8D5C8"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>'}
+function addMsg(text,role,extra){
+  const msgs=document.getElementById("msgs");
+  const row=document.createElement("div");
+  row.className="row"+(role==="u"?" u":"");
+  const av=document.createElement("div");
+  av.className="mav "+(role==="a"?"a":"u");
+  av.textContent=role==="a"?"G":"You";
+  const bub=document.createElement("div");
+  bub.className="bub "+(role==="a"?"a":"u");
+  const txt=document.createElement("span");
+  txt.style.whiteSpace="pre-wrap";
+  txt.textContent=text;
+  bub.appendChild(txt);
+  if(extra&&extra.whatsapp){
+    const a=document.createElement("a");
+    a.href=extra.waHref||"https://wa.me/27615347756";
+    a.target="_blank";a.rel="noopener noreferrer";
+    a.className="wa-inline";
+    a.innerHTML=waIcon()+"Speak to us on WhatsApp";
+    bub.appendChild(a);
+  }
+  const t=document.createElement("span");
+  t.className="btime";t.textContent=getTime();
+  bub.appendChild(t);
+  row.appendChild(av);row.appendChild(bub);
+  msgs.appendChild(row);scrollBottom();
+}
+function showTypingDots(){
+  const msgs=document.getElementById("msgs");
+  const row=document.createElement("div");
+  row.className="typing-row";row.id="typingDots";
+  const av=document.createElement("div");av.className="mav a";av.textContent="G";
+  const bub=document.createElement("div");bub.className="tbub";
+  bub.innerHTML='<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
+  row.appendChild(av);row.appendChild(bub);msgs.appendChild(row);scrollBottom();
+}
+function hideTypingDots(){const e=document.getElementById("typingDots");if(e)e.remove()}
+function buildSFHTML(){
+  if(!sfResult){return `<div class="sf-card"><div class="sf-toggle"><button onclick="setSFUnit('cm')" style="background:${sfUnit==="cm"?"#2C2420":"transparent"};color:${sfUnit==="cm"?"#FAF7F4":"#7A6B64"}">CM</button><button onclick="setSFUnit('in')" style="background:${sfUnit==="in"?"#2C2420":"transparent"};color:${sfUnit==="in"?"#FAF7F4":"#7A6B64"}">INCH</button></div>${[["bust","Bust","Fullest part of your chest"],["waist","Waist","Narrowest part of your torso"],["hips","Hips","Widest part of your hips"]].map(([f,l,h])=>`<div class="sf-field"><div style="flex:1"><div style="font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px">${l}</div><div style="font-size:11px;color:#7A6B64">${h}</div></div><input type="number" id="sf_${f}" placeholder="–" oninput="sfStore('${f}',this.value)" style="width:64px;text-align:center;border:1px solid #E2D8D0;background:#F5F0EB;padding:8px 6px;font-family:Jost,sans-serif;font-size:14px;color:#2C2420;outline:none"><span style="font-size:10px;color:#7A6B64;width:18px">${sfUnit}</span></div>`).join("")}<button onclick="findSizeNow()" style="width:100%;padding:12px;background:#2C2420;color:#FAF7F4;border:none;font-family:Jost,sans-serif;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;margin-top:4px">Find My Size</button></div>`}
+  const{best,second,isBetween}=sfResult;
+  return`<div class="sf-card"><div class="sf-result"><div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#7A6B64;margin-bottom:8px">Your recommended size</div><div class="sf-size">${best.label}</div><div style="font-size:11px;color:#7A6B64;margin-bottom:12px">${best.uk}</div><div class="sf-pills">${SIZES.map(s=>`<div class="sf-pill" style="background:${s.label===best.label?"#2C2420":"#fff"};color:${s.label===best.label?"#FAF7F4":"#7A6B64"}">${s.label}</div>`).join("")}</div></div>${isBetween?`<div class="between-note">Your measurements sit between <strong>${best.label}</strong> and <strong>${second.label}</strong>. Size up to <strong>${second.label}</strong> for a relaxed fit, or stay with <strong>${best.label}</strong> for a closer fit.</div>`:""}<div style="font-size:12px;color:#7A6B64;line-height:1.7;margin-bottom:14px;text-align:center">Sizing may vary slightly by style 🤍<br>Shop your size at <strong style="color:#2C2420">www.lfrique.com</strong></div><div style="display:flex;gap:8px"><button onclick="resetSF()" style="flex:1;padding:10px;background:transparent;border:1px solid #E2D8D0;font-family:Jost,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7A6B64;cursor:pointer">Try Again</button><button onclick="closeSF()" style="flex:1;padding:10px;background:#2C2420;color:#FAF7F4;border:none;font-family:Jost,sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer">Done 🤍</button></div></div>`
+}
+function buildShipHTML(){return`<div class="ship-card"><div class="ship-title">Shipping</div><div class="ship-toggle"><button onclick="setShipTab('sa')" style="background:${shippingTab==="sa"?"#2C2420":"transparent"};color:${shippingTab==="sa"?"#FAF7F4":"#7A6B64"}">SA</button><button onclick="setShipTab('int')" style="background:${shippingTab==="int"?"#2C2420":"transparent"};color:${shippingTab==="int"?"#FAF7F4":"#7A6B64"}">International</button></div><div style="min-height:28px;margin-bottom:6px;text-align:center">${shippingTab==="sa"?'<p style="font-size:11px;color:#7A6B64">Most of our customers shop locally 🤍</p>':""}</div>${shippingTab==="sa"?'<div style="text-align:center;font-size:13px;color:#4a4a4a;line-height:1.9">R100 flat-rate shipping 🤍<br>Delivery usually takes 2–5 business days.<br><span style="font-size:11px;color:#7A6B64">Free on orders over R1000.</span></div>':`<div style="text-align:center;font-size:13px;color:#4a4a4a;line-height:1.9;margin-bottom:14px">We ship internationally — rates are calculated at checkout ✨<br>Delivery usually takes 10–15 business days.</div><div class="customs-note">Customs duties or import taxes aren’t included and may be charged by your country.<br><br>If these are declined or delivery cannot be completed, the parcel may be abandoned and shipping costs are non-refundable.</div>`}<button onclick="closeShipping()" style="width:100%;margin-top:16px;padding:11px;background:#2C2420;color:#FAF7F4;border:none;font-family:Jost,sans-serif;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border-radius:4px">Done 🤍</button></div>`}
+function renderSF(){const m=document.getElementById("msgs");const w=document.createElement("div");w.className="sf-wrap";w.id="sizeFinder";w.innerHTML=buildSFHTML();m.appendChild(w);scrollBottom()}
+function renderShip(){const m=document.getElementById("msgs");const w=document.createElement("div");w.className="sf-wrap";w.id="shippingCard";w.innerHTML=buildShipHTML();m.appendChild(w);scrollBottom()}
+function setSFUnit(u){sfUnit=u;sfBust="";sfWaist="";sfHips="";sfResult=null;const e=document.getElementById("sizeFinder");if(e)e.innerHTML=buildSFHTML()}
+function sfStore(f,v){if(f==="bust")sfBust=v;else if(f==="waist")sfWaist=v;else sfHips=v}
+function findSizeNow(){const tc=v=>sfUnit==="in"?v*2.54:v;const b=sfBust?tc(parseFloat(sfBust)):null,w=sfWaist?tc(parseFloat(sfWaist)):null,h=sfHips?tc(parseFloat(sfHips)):null;if(!b&&!w&&!h)return;sfResult=calcSize(b,w,h);const e=document.getElementById("sizeFinder");if(e)e.innerHTML=buildSFHTML()}
+function resetSF(){sfResult=null;sfBust="";sfWaist="";sfHips="";const e=document.getElementById("sizeFinder");if(e)e.innerHTML=buildSFHTML()}
+function closeSF(){const e=document.getElementById("sizeFinder");if(e)e.remove();showSizeFinder=false;sfResult=null;setTimeout(()=>addMsg("Is there anything else I can help you with? 🤍","a"),300)}
+function setShipTab(t){shippingTab=t;const e=document.getElementById("shippingCard");if(e)e.innerHTML=buildShipHTML()}
+function closeShipping(){const e=document.getElementById("shippingCard");if(e)e.remove();showShipping=false;shippingTab="sa";setTimeout(()=>addMsg("Is there anything else I can help you with? 🤍","a"),300)}
+function isOrderNum(t){return /^#?[A-Za-z0-9-]{2,20}$/.test(t.trim())}
+function sendMsg(text){
+  if(!text.trim()||isTyping)return;
+  document.getElementById("inputField").value="";
+  document.getElementById("inputField").style.height="auto";
+  document.getElementById("sendBtn").disabled=true;
+  addMsg(text,"u");
+  if(awaitingOrderNumber){
+    if(!isOrderNum(text)){showTypingDots();setTimeout(()=>{hideTypingDots();addMsg("Please send me your order number so I can check this for you 🤍","a")},700)}
+    else{awaitingOrderNumber=false;showTypingDots();setTimeout(()=>{hideTypingDots();const n=text.trim();addMsg("Thank you 🤍 I’ve got your order number. Let me take a look and I’ll update you shortly.","a",{whatsapp:true,waHref:`https://wa.me/27615347756?text=Hi%2C+I+need+help+with+my+order+${encodeURIComponent("#"+n)}`})},800)}
+    return;
+  }
+  const intent=detectIntent(text);
+  if(intent==="sizing"){isTyping=true;showTypingDots();setTimeout(()=>{hideTypingDots();isTyping=false;addMsg("Of course 🤍 Use the tool below to enter your measurements and I’ll find your size.","a");showSizeFinder=true;renderSF()},800);return}
+  if(intent==="shipping"){isTyping=true;showTypingDots();setTimeout(()=>{hideTypingDots();isTyping=false;addMsg("Here’s everything you need to know 🤍","a");showShipping=true;renderShip()},700);return}
+  if(intent==="order_update"){awaitingOrderNumber=true;isTyping=true;showTypingDots();setTimeout(()=>{hideTypingDots();isTyping=false;addMsg("Please send me your order number and I’ll check this with the team for you right away 🤍","a")},700);return}
+  if(intent==="return_address"){isTyping=true;showTypingDots();setTimeout(()=>{hideTypingDots();isTyping=false;addMsg("No problem 🤍 Our team will send you the return address directly — tap below to get in touch.","a",{whatsapp:true,waHref:"https://wa.me/27615347756?text=Hi%2C+I%27d+like+the+return+address+for+my+L%27Afrique+order"})},700);return}
+  isTyping=true;showTypingDots();
+  setTimeout(()=>{hideTypingDots();isTyping=false;addMsg(getReply(text),"a")},700+Math.random()*500);
+}
+function sendFromInput(){const v=document.getElementById("inputField").value.trim();if(v)sendMsg(v)}
+function handleKey(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendFromInput()}}
+function autoResize(el){el.style.height="auto";el.style.height=Math.min(el.scrollHeight,100)+"px";document.getElementById("sendBtn").disabled=!el.value.trim()}
+document.addEventListener("DOMContentLoaded",function(){
+  setTimeout(function(){addMsg("Hey, it's Gigi 🤍 Welcome to L'Afrique. How can I help you today?","a")},400);
+});
+// Fallback in case DOMContentLoaded already fired
+,400);
+}
+</script>
+</body>
+</html>
